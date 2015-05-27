@@ -3,6 +3,10 @@ require 'csv'
 
 class CurriculumMaker
 
+  include ERB::Util # loads utilities which "html_escape" or "h". In essence make safe for output of HTML.
+                    # "j" which makes sure that things are safe for Javascript.
+                    # "u" which makes sure that things are safe to be put in the url (things can be url escaped).
+
   attr_reader :course_data, # [array] of hashes.
               :template
 
