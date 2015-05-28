@@ -11,11 +11,15 @@ target_dir = File.join(site_dir, 'programs')
 
 # define data and template files
 semester_files = ['first_semester.csv', 'second_semester.csv']
+template_file = 'graphic-design.html.erb'
 
 # create a new CurriculumMaker
 cm = CurriculumMaker.new
 
 # add the template
+template_path = File.join(assets_dir, template_file)
+cm.add_template(template_path)
+
 # add the course data
 semester_files.each do |semester_file|
   semester_path = File.join(assets_dir, semester_file)
