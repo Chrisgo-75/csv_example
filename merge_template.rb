@@ -11,7 +11,8 @@ target_dir = File.join(site_dir, 'programs')
 
 # define data and template files
 semester_files = ['first_semester.csv', 'second_semester.csv']
-template_file = 'graphic-design.html.erb'
+template_file  = 'graphic-design.html.erb'
+target_file    = 'graphic_design.htm'
 
 # create a new CurriculumMaker
 cm = CurriculumMaker.new
@@ -28,4 +29,13 @@ end
 
 # render output and capture in a variable
 content = cm.render
-puts content
+# puts content
+
+# Save a file in Ruby
+output_path = File.join(target_dir, target_file)
+# a) take string and use File.open
+# b) "w+" 1) creates the file if it doesn't exist, 2) if file does exist will truncate the contents of the file so
+#         that the file will be empt and then open the file up to be written and read to.
+File.open(output_path, 'w+') do |f|
+  f.write(content)
+end
